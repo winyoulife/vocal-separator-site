@@ -130,14 +130,30 @@
                 -->
                 
                 <!-- 嵌入 HF Space -->
-                <div class="tool-container">
-                    <iframe 
-                        src="https://winyoulife-vocal-separator.hf.space" 
-                        frameborder="0"
-                        width="100%"
-                        height="800px"
-                        style="border: 2px solid #e0e0e0; border-radius: 10px;">
-                    </iframe>
+                <div class="tool-wrapper">
+                    <div class="tool-header">
+                        <div class="tool-header-content">
+                            <span class="tool-icon">🎵</span>
+                            <div class="tool-header-text">
+                                <h3>AI 音樂分離工具</h3>
+                                <p>上傳音樂文件，AI 自動分離人聲和伴奏</p>
+                            </div>
+                        </div>
+                        <div class="tool-status">
+                            <span class="status-dot"></span>
+                            <span>運行中</span>
+                        </div>
+                    </div>
+                    <div class="tool-container">
+                        <iframe 
+                            src="https://winyoulife-vocal-separator.hf.space?__theme=light" 
+                            frameborder="0"
+                            width="100%"
+                            height="850px"
+                            allow="microphone; camera"
+                            loading="lazy">
+                        </iframe>
+                    </div>
                 </div>
                 
                 <!-- AdSense 廣告位 3 - 審核通過後啟用 -->
