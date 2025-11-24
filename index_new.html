@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="使用先進 AI 技術免費分離歌曲中的人聲和伴奏。快速、簡單、高品質。">
+    <meta name="keywords" content="vocal separator, 人聲分離, AI 音樂, 伴奏提取, karaoke maker">
+    <title>🎵 AI 音樂人聲分離工具 - 免費在線使用</title>
+    
+    <!-- Monetag 廣告代碼 -->
+    <script src="https://fpyf8.com/88/tag.min.js" data-zone="187752" async data-cfasync="false"></script>
+    
+    <!-- Google AdSense 驗證代碼 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844313416500915"
+     crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="styles_new.css">
+</head>
+<body>
+    <!-- 簡化的導航欄 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🎵 AI Vocal Separator</div>
+            <div class="nav-links">
+                <a href="#features">功能</a>
+                <a href="#how-to">教程</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容區域 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 標題區域 -->
+            <div class="header-section">
+                <h1>🎵 AI 音樂人聲分離</h1>
+                <p class="subtitle">上傳音樂文件，AI 自動分離人聲和伴奏</p>
+            </div>
+
+            <!-- 錯誤提示 -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <!-- 上傳區域 -->
+            <div id="dropZone" class="drop-zone">
+                <div class="drop-zone-content">
+                    <div class="upload-icon">📁</div>
+                    <h2>拖放文件到這裡</h2>
+                    <p>或</p>
+                    <button id="uploadBtn" class="upload-button">選擇文件</button>
+                    <input type="file" id="fileInput" accept="audio/*" style="display: none;">
+                    <p class="file-types">支援 MP3, WAV, FLAC, M4A, OGG（最大 50MB）</p>
+                </div>
+            </div>
+
+            <!-- 文件信息 -->
+            <div id="fileInfo" class="file-info" style="display: none;">
+                <div class="file-details">
+                    <div class="file-icon">🎵</div>
+                    <div class="file-text">
+                        <h3 id="fileName">文件名稱</h3>
+                        <p id="fileSize">文件大小</p>
+                    </div>
+                </div>
+                <button id="processBtn" class="process-button" disabled>
+                    開始分離
+                </button>
+            </div>
+
+            <!-- 處理中 -->
+            <div id="processingSection" class="processing-section" style="display: none;">
+                <div class="processing-content">
+                    <div class="spinner"></div>
+                    <h2>AI 正在處理中...</h2>
+                    <p>這可能需要 2-5 分鐘，請耐心等待</p>
+                    <div class="progress-bar-container">
+                        <div id="progressBar" class="progress-bar"></div>
+                    </div>
+                    <p id="progressText" class="progress-text">0%</p>
+                </div>
+            </div>
+
+            <!-- 結果區域 -->
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <h2>✅ 分離完成！</h2>
+                
+                <div class="results-grid">
+                    <!-- 人聲 -->
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>🎤 人聲</h3>
+                        </div>
+                        <audio id="vocalsPlayer" controls class="audio-player"></audio>
+                        <a id="vocalsDownload" href="#" download="vocals.mp3" class="download-button">
+                            ⬇️ 下載人聲
+                        </a>
+                    </div>
+
+                    <!-- 伴奏 -->
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>🎸 伴奏</h3>
+                        </div>
+                        <audio id="instrumentalPlayer" controls class="audio-player"></audio>
+                        <a id="instrumentalDownload" href="#" download="instrumental.mp3" class="download-button">
+                            ⬇️ 下載伴奏
+                        </a>
+                    </div>
+                </div>
+
+                <button id="resetBtn" class="reset-button">
+                    🔄 處理新文件
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 功能介紹（摺疊） -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2>✨ 主要功能</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>高品質人聲提取</h3>
+                    <p>使用最新的 Demucs AI 模型</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎸</div>
+                    <h3>完整伴奏分離</h3>
+                    <p>獲得純淨的伴奏音軌</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3>完全免費</h3>
+                    <p>無需註冊，無使用限制</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>快速處理</h3>
+                    <p>通常 2-5 分鐘完成</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用步驟 -->
+    <section id="how-to" class="how-to-section">
+        <div class="container">
+            <h2>📝 使用步驟</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>上傳文件</h3>
+                    <p>拖放或選擇音樂文件</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>AI 處理</h3>
+                    <p>等待 2-5 分鐘</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>下載結果</h3>
+                    <p>獲得人聲和伴奏</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2>❓ 常見問題</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Q: 完全免費嗎？</h3>
+                    <p>A: 是的！完全免費，無任何限制。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q: 需要註冊嗎？</h3>
+                    <p>A: 不需要！直接上傳即可使用。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q: 支援哪些格式？</h3>
+                    <p>A: 支援 MP3、WAV、FLAC、M4A、OGG 等常見格式。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q: 處理需要多久？</h3>
+                    <p>A: 通常 2-5 分鐘，取決於文件大小。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 AI Vocal Separator. All rights reserved.</p>
+            <p>使用最新 AI 技術 | 完全免費 | 保護隱私</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
